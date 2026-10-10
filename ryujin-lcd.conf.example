@@ -1,0 +1,25 @@
+# Settings for the Ryujin II LCD dashboard (installed as /etc/ryujin-lcd.conf).
+# Empty or missing = default. After a change: sudo systemctl restart ryujin-lcd-monitor
+
+# GIF slot to show while the PC is off (upload it first with offline_gif.py).
+# None = the cooler's ROG animation.
+OFFLINE_GIF_SLOT=None
+
+# Panel rotation in degrees counter-clockwise (0/90/180/270). 270 = portrait for the usual mounting.
+ROTATE=270
+
+# Graphics card: auto = the AMD GPU with the most VRAM. Or a PCI address like 0000:03:00.0
+# (see: ls /sys/bus/pci/devices/*/mem_info_vram_total). NVIDIA cards are not read (shows --).
+GPU_PCI=auto
+
+# Font file, auto = Noto Sans Mono or DejaVu Sans Mono if installed.
+FONT=auto
+
+# Background picture (make_background.py makes one).
+BACKGROUND=/usr/local/share/ryujin-lcd/background.png
+
+# Frames per second (the cooler falls back to its animation if frames stop), falling-code
+# brightness (0 = off), free pixels along the screen frame.
+FPS=10
+RAIN=0.6
+EDGE=14

@@ -1,0 +1,26 @@
+[Unit]
+Description=Live CPU / GPU / RAM dashboard streamed to the ASUS ROG Ryujin II LCD
+After=systemd-udev-settle.service
+
+[Service]
+ExecStart=/usr/bin/python3 -u /usr/local/bin/ryujin-lcd-monitor
+Restart=always
+RestartSec=10
+DynamicUser=yes
+SupplementaryGroups=ryujin-lcd
+DevicePolicy=closed
+DeviceAllow=char-hidraw rw
+DeviceAllow=char-usb_device rw
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateNetwork=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+MemoryMax=128M
+
+[Install]
+WantedBy=multi-user.target

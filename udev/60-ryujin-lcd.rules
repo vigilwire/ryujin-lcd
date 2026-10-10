@@ -1,0 +1,4 @@
+# ASUS ROG Ryujin II (0b05:1988) LCD: let group ryujin-lcd (the dashboard service) use the HID
+# interface (commands) and the raw USB device node (bulk interface 0, live frames)
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0b05", ATTRS{idProduct}=="1988", GROUP="ryujin-lcd", MODE="0660"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0b05", ATTR{idProduct}=="1988", GROUP="ryujin-lcd", MODE="0660"
